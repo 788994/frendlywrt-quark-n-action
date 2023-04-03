@@ -132,18 +132,13 @@ jobs:
                 [ "${{ matrix.SET }}" == "docker" ] && SUFFIX="-docker"
                 DIRNAME=friendlywrt$(echo ${{ matrix.VERSION }}|awk -F . '{print $1}')${SUFFIX}
                 CONFIG=rockchip${SUFFIX}
-	 
              #  cat > .current_config.mk <<EOL
             #    . device/friendlyelec/rk3399/base.mk
             #    TARGET_IMAGE_DIRNAME=${DIRNAME}
             #    TARGET_FRIENDLYWRT_CONFIG=${CONFIG}
             #    EOL
             #   DEBUG_DOT_CONFIG=1 ./build.sh friendlywrt
-	    
-        
-	  DEBUG_DOT_CONFIG=1 ./build.sh nanopi_m1_plus.mk    
-
-	 
+	     DEBUG_DOT_CONFIG=1 ./build.sh nanopi_m1_plus.mk     
       - name: Download package
          run: |
         cd project/friendlywrt
