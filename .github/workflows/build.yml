@@ -29,19 +29,16 @@ jobs:
       id: release
       uses: softprops/action-gh-release@v1
       env:
+        DIY_P1_SH: diy-part1.sh
+        DIY_P2_SH: diy-part2.sh
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.release_tag.outputs.release_tag }}
         draft: false
 
 
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
-
-
-
-
         prerelease: false
+ 
     outputs:
       release_tag: ${{ steps.release_tag.outputs.release_tag }}
       upload_url: ${{ steps.release.outputs.upload_url }}
